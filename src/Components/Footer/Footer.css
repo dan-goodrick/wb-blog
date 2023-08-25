@@ -1,0 +1,22 @@
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+
+  height:4vh;
+}
+
+footer p {
+  padding: 7px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #ccc;
+}

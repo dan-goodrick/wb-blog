@@ -1,4 +1,46 @@
-.Nav {
+/* header {
+
+
+} */
+
+nav {
+  background-color: #333;
+  color: #fff;
+  font-size: 2.3vw;
+  height:7.5vh;
+}
+#logo {
+  width: 5vw;
+  height: 5vw;
+  max-height: 70px;
+  max-width: 70px;
+  padding: 5px;
+}
+.navigation {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  text-decoration: none;
+  width: 100vw;
+}
+
+/* .navigation li {
+  margin-right: 20px;
+} */
+
+.navigation a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.navigation a:hover {
+  color: #ccc;
+}
+
+/* .Nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -36,4 +78,4 @@
 
 .Nav a:hover {
   color: #2baae2;
-}
+} */

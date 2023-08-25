@@ -1,7 +1,9 @@
 .Home {
-  background: white url('./../../images/background.png') center/cover no-repeat;
+  /* background: white url('./../../images/background.png') center/cover no-repeat; */
   width: 100%;
-  min-height: 100vh;
+  color: #2baae2;
+  background-color: #525455;
+  height: 88.3vh;
   display: flex;
   justify-content: center;
   align-items: center;

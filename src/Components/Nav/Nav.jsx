@@ -1,17 +1,30 @@
-import logo from '../../images/dm_white_logo.png';
-import './Nav.css';
-import {Link} from 'react-router-dom'
+import logo from "../../images/logo.webp";
+import "./Nav.css";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
   return (
-    <div className="Nav">
-      <div>
-        <img src={logo} alt="dm logo" />
-      </div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/topics">Topics</Link></li>
-      </ul>
-    </div>
+      <nav className="Nav">
+        <ul className="navigation">
+          <li> 
+            <Link to="/"><img id="logo" src={logo} alt="BOH" /></Link>
+          </li>
+          <li>
+            <Link to="/projects">Past Projects</Link>
+          </li>
+          <li>
+            <Link to="/candidates">Candidates</Link>
+          </li>
+          <li>
+            <Link to="/donate">Donate</Link>
+          </li>
+          <li>
+            <Link to="/about"></Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+        </ul>
+      </nav>
   );
 }
