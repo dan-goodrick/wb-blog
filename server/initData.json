@@ -35,9 +35,11 @@
       "../src/Components/Candidates/images/DeLaCruzDeed3.jpg"
     ],
     "video": "",
-    "current": true,
+    "currentOnPayments": true,
     "ownsLand": false,
-    "applicationComplete": true
+    "applicationComplete": true,
+    "acceptedToBuild":false,
+    "built": false
   },
   {
     "key": 1,
@@ -68,10 +70,12 @@
       "../src/Components/Candidates/images/OladeReciept.jpeg",
       "../src/Components/Candidates/images/OladeReciept2.jpeg"
     ],
-    "current": true,
+    "currentOnPayments": true,
     "ownsLand": false,
     "video": "https://drive.google.com/file/d/1EwWpngEVEVYy7ukGeqwLhUBdT4jqkDSi/view?usp=sharing",
-    "applicationComplete": true
+    "applicationComplete": true,
+    "acceptedToBuild":false,
+    "built": false
   },
   {
     "key": 2,
@@ -90,9 +94,11 @@
       }
     ],
     "deed": [],
-    "current": true,
+    "currentOnPayments": true,
     "ownsLand": true,
     "video": "",
-    "applicationComplete": false
+    "applicationComplete": false,
+    "acceptedToBuild":false,
+    "built": false
   }
 ]

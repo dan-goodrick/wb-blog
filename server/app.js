@@ -13,10 +13,10 @@ app.use(express.json())
 // app.use(express.static('public')) // not used with vite
 
 // endpoints
-app.get("/candidates", ctrl.show)
-app.post("/candidates", ctrl.add)
-app.put("/candidate/:key", ctrl.edit)
-app.delete("/candidate/:key", ctrl.delete)
+app.get("/getCandidates", ctrl.show)
+app.post("/addCandidate", ctrl.add)
+app.put("/editCandidate/:key", ctrl.edit)
+app.delete("/delCandidate/:key", ctrl.delete)
 
 ViteExpress.config({ printViteDevServerHost: true });
 ViteExpress.listen(app, PORT, ()=>console.log(`Hosting Backend on http://localhost:${PORT}`))

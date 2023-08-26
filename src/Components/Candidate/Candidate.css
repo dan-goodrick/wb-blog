@@ -1,0 +1,8 @@
+.candidate{
+ /* padding:black 5px 5px; */
+ width:30vw;
+ height:30vw;
+ background-position: center center;
+ background-size: contain;
+ background-repeat: no-repeat;
+}

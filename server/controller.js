@@ -33,7 +33,7 @@ const handlerFunctions = {
     candidate.lastName = newData.lastName ?? candidate.lastName;
     candidate.familyPhoto = newData.familyPhoto ?? candidate.familyPhoto;
     candidate.gps = newData.gps ?? candidate.gps;
-    // TODO This will add anything in the edit to the array of members but I really need another component to edit/remove/add members.
+    // TODO This will add anything in the edit to the array of members but I really need add a function to update members by name.
     if (newData.members) {
       candidate.members = [...candidate.members, ...newData.members];
     }
@@ -41,12 +41,15 @@ const handlerFunctions = {
       candidate.deed = [...candidate.deed, ...newData.deed];
     }
     candidate.video = newData.video ?? candidate.video;
-    candidate.current = newData.current ?? candidate.current;
+    candidate.currentOnPayments = newData.currentOnPayments ?? candidate.currentOnPayments;
     candidate.ownsLand = newData.ownsLand ?? candidate.ownsLand;
-    candidate.applicationComplete =
-      newData.applicationComplete ?? candidate.applicationComplete;
+    candidate.applicationComplete = newData.applicationComplete ?? candidate.applicationComplete;
+    candidate.acceptedToBuild = newData.acceptedToBuild ?? candidate.acceptedToBuild;
+    candidate.built = newData.built ?? candidate.built;
+
     data[i] = candidate;
     res.send(candidate);
+    console.log("data post edit", data[i]);
   },
   delete: (req, res) => {
     console.log("row to delete:", req.params.key, "data", data[key]);
