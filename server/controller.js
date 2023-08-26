@@ -3,31 +3,29 @@ const importData = await import("./initData.json", {
     type: "json",
   },
 });
-let data = importData.default;
-let key = data.length;
 
+let candidates = importData.default;
+let key = candidates.length;
+console.log("key", key)
 const handlerFunctions = {
   show: (req, res) => {
-    res.send(data);
+    res.send(candidates);
   },
   add: (req, res) => {
-    console.log("body", req.body);
     key++; // increment key value globally
-    const { candidateData } = req.body;
-    const newCandidate = {
-      ...candidateData,
-      key: key,
-    };
-    data.push(newCandidate);
-    res.send(newCandidate);
+    req.body.data.key=key
+    console.log("reqbody", req.body.data);
+    candidates.push(req.body.data);
+    res.send(req.body.data);
   },
   edit: (req, res) => {
     console.log("body", req.body);
     console.log("params", req.params);
     const newData = req.body;
-    const i = data.findIndex((el) => (el.key = +req.params.key));
+    const i = candidates.findIndex((el) => (el.key === +req.params.key));
+    console.log("candidates", candidates);
     console.log("key", i);
-    let candidate = data[i];
+    let candidate = candidates[i];
     console.log("newData", newData);
     console.log("candidate", candidate);
     candidate.lastName = newData.lastName ?? candidate.lastName;
@@ -47,14 +45,14 @@ const handlerFunctions = {
     candidate.acceptedToBuild = newData.acceptedToBuild ?? candidate.acceptedToBuild;
     candidate.built = newData.built ?? candidate.built;
 
-    data[i] = candidate;
+    candidates[i] = candidate;
     res.send(candidate);
-    console.log("data post edit", data[i]);
+    console.log("data post edit", candidates[i]);
   },
   delete: (req, res) => {
-    console.log("row to delete:", req.params.key, "data", data[key]);
+    console.log("row to delete:", req.params.key, "candidates", candidates[key]);
     // eslint-disable-next-line no-import-assign
-    data = data.filter((el) => el.id != +req.params.key);
+    candidates = candidates.filter((el) => el.id != +req.params.key);
     res.send(`Record ${key} deleted`);
   },
 };

@@ -1,22 +1,19 @@
-.new-candidate{
+.form{
  /* padding:black 5px 5px; */
  width:30vw;
  height:30vw;
  display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
- background-position: center center;
- background-size: contain;
- background-repeat: no-repeat;
- background-image: url("https://static.thenounproject.com/png/2453491-200.png");
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
 }
-
-/* input{
-  width: 100%;
-
+.plus {
+  width:30vw;
+  height:30vw;
+  background-position: center center;
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  background-image: url("https://static.thenounproject.com/png/2453491-200.png");
+  
 }
-button {
-  width: 100%;
-} */
 
