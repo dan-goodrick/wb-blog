@@ -1,12 +1,12 @@
 import './Candidate.css'
 import keys from "../Candidates/dataFields";
 
-export default function Candidate({ data, editMode, setEditMode, updateCandidate, deleteCandidate, i}) {
-  console.log("Candidate-data", data, "editMode", editMode, "i", i);
+export default function Candidate({ data, editMode, setEditMode, updateCandidate, deleteCandidate, k}) {
+  console.log("Candidate-data", data, "editMode", editMode);
   return (
     <div className="candidate" onDoubleClick={()=>setEditMode(true)} style={{backgroundImage:`url(${data.familyPhoto})`}}>
     {editMode? (
-      <form className="form" onSubmit={()=>updateCandidate(i)} >
+      <form className="form" onSubmit={(e)=>updateCandidate(k,e)} >
         {Object.keys(keys).map((key) => (
           <input
             key={key}
@@ -17,7 +17,7 @@ export default function Candidate({ data, editMode, setEditMode, updateCandidate
           ></input>
         ))}
         <button type="submit">Update</button>
-        <button id="button" onClick={()=>deleteCandidate(i)}>Delete</button></form>
+        <button id="button" onClick={()=>deleteCandidate(k)}>Delete</button></form>
     ):(
       <>
         <div>{data.lastName}</div>

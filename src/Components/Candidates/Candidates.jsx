@@ -10,7 +10,6 @@ export default function Candidates() {
   const [candidateList, setCandidateList] = useState(false);
   const [formVisible, setFormVisible] = useState(false);
   const [editMode, setEditMode] = useState(false);
-  
 
   const addCandidate = async (e) => {
     e.preventDefault();
@@ -34,18 +33,27 @@ export default function Candidates() {
     console.log("candidateList-getCandidates", candidateList);
   };
 
-  const updateCandidate = async (key) => {
-    // console.log("update key", key)
-    await axios.put(`/editCandidate/${key}`, {});
-    setEditMode(false);
-  }
-  
-  const deleteCandidate = async (key) => {
-      await axios.delete(`/delCandidate/${key}`, {});
-      setEditMode(false);
-    }
-    
+  const updateCandidate = async (k, e) => {
+    e.preventDefault();
 
+    console.log("update event target", e.target);
+    const data = { key: k };
+    for (const el of e.target.elements) {
+      if (el.tagName === "INPUT") data[el.name] = el.value;
+      // data[el.name] = el.name === "members" || el.name === "deed" ? JSON.parse(el.value) : el.value;
+    }
+
+    console.log("update event", data);
+    candidateList[k] = data;
+    setCandidateList(candidateList);
+    await axios.put(`/editCandidate/${k}`, data);
+    setEditMode(false);
+  };
+
+  const deleteCandidate = async (k) => {
+    await axios.delete(`/delCandidate/${k}`);
+    setEditMode(false);
+  };
 
   useEffect(() => {
     console.log("useEffect", candidateList);
@@ -69,7 +77,7 @@ export default function Candidates() {
               setEditMode={setEditMode}
               updateCandidate={updateCandidate}
               deleteCandidate={deleteCandidate}
-              i = {el.key}
+              k={el.key}
             />
           );
         })}
