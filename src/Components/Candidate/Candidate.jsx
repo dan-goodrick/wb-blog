@@ -1,10 +1,15 @@
-import './Candidate.css'
+import "./Candidate.css";
 import axios from "axios";
 
 import keys from "../Candidates/dataFields";
 import { useState } from "react";
 
-export default function Candidate({ data, k, candidateList, setCandidateList}) {
+export default function Candidate({
+  data,
+  k,
+  candidateList,
+  setCandidateList,
+}) {
   const [editMode, setEditMode] = useState(false);
 
   const updateCandidate = async (k, e) => {
@@ -16,25 +21,25 @@ export default function Candidate({ data, k, candidateList, setCandidateList}) {
       if (el.tagName === "INPUT") data[el.name] = el.value;
       data[el.name] = el.value;
     }
-    console.log("update event", data);
+    console.log("update event", data, k);
     candidateList[k] = data;
     setCandidateList(candidateList);
     await axios.put(`/editCandidate/${k}`, data);
     setEditMode(false);
   };
-    const deleteCandidate = async (k) => {
-      candidateList.splice(k, 1)
-      setCandidateList(candidateList);
-      await axios.delete(`/delCandidate/${k}`);
+  const deleteCandidate = async (k) => {
+    console.log("deleting ", k);
+    candidateList.splice(k, 1);
+    setCandidateList(candidateList);
+    await axios.delete(`/delCandidate/${k}`);
 
-      setEditMode(false);
-    };
-
+    setEditMode(false);
+  };
 
   console.log("Candidate-data", data, "editMode", editMode);
-  return editMode? (
-      <div className="candidate" >
-      <form className="form" onSubmit={(e)=>updateCandidate(k,e)} >
+  return editMode ? (
+    <div className="candidate">
+      <form className="form" onSubmit={(e) => updateCandidate(k, e)}>
         {Object.keys(keys).map((key) => (
           <input
             key={key}
@@ -45,19 +50,31 @@ export default function Candidate({ data, k, candidateList, setCandidateList}) {
           ></input>
         ))}
         <button type="submit">Update</button>
-        <button id="button" onClick={()=>deleteCandidate(k)}>Delete</button></form>
-        </div>
-    ):(
-      <div className="candidate" onDoubleClick={()=>setEditMode(true)} style={{backgroundImage:`url(${data.familyPhoto})`}}>
-        <div>{data.lastName}</div>
-        <div>{data.gps}</div>
-        <div>{data.members}</div>
-        <div>{data.deed}</div>
-        <a href={data.video}>{data.video?`${data.lastName} Family Video`:""}</a>
-        <p>Land Ownership Type:{data.ownsLand? "Owns": "Mortgage"}</p>
-        <p>Current on Payments:{data.currentOnPayments? "Current": "Behind"}</p>
-        <p>Application Complete:{data.applicationComplete? "Complete": "Pending"}</p>
-        <p>Chosen for Home:{data.acceptedToBuild? "Selected": "Pending"}</p>
-        <p>Home Built:{data.built? "YES": "NO"}</p>
-      </div>
-    )}
+        <button id="button" onClick={() => deleteCandidate(k)}>
+          Delete
+        </button>
+      </form>
+    </div>
+  ) : (
+    <div
+      className="candidate"
+      onDoubleClick={() => setEditMode(true)}
+      style={{ backgroundImage: `url(${data.familyPhoto})` }}
+    >
+      <div>{data.lastName}</div>
+      <div>{data.gps}</div>
+      <div>{data.members}</div>
+      <div>{data.deed}</div>
+      <a href={data.video}>
+        {data.video ? `${data.lastName} Family Video` : ""}
+      </a>
+      <p>Land Ownership Type:{data.ownsLand ? "Owns" : "Mortgage"}</p>
+      <p>Current on Payments:{data.currentOnPayments ? "Current" : "Behind"}</p>
+      <p>
+        Application Complete:{data.applicationComplete ? "Complete" : "Pending"}
+      </p>
+      <p>Chosen for Home:{data.acceptedToBuild ? "Selected" : "Pending"}</p>
+      <p>Home Built:{data.built ? "YES" : "NO"}</p>
+    </div>
+  );
+}

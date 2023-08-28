@@ -12,5 +12,6 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': 'warn',
     'react/prop-types': 'off',
+    "max-len": ["error", { "code": 120 }]
   },
 }
