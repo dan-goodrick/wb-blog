@@ -9,6 +9,7 @@ export default function Candidate({
   k,
   candidateList,
   setCandidateList,
+  getCandidates
 }) {
   const [editMode, setEditMode] = useState(false);
 
@@ -26,14 +27,15 @@ export default function Candidate({
     setCandidateList(candidateList);
     await axios.put(`/editCandidate/${k}`, data);
     setEditMode(false);
+    getCandidates()
   };
-  const deleteCandidate = async (k) => {
-    console.log("deleting ", k);
-    candidateList.splice(k, 1);
-    setCandidateList(candidateList);
-    await axios.delete(`/delCandidate/${k}`);
 
+  const deleteCandidate = (k) => {
+    console.log("deleting ", k);
+    axios.delete(`/delCandidate/${k}`)
+    candidateList = candidateList.filter((el) => el.key != +k);
     setEditMode(false);
+    getCandidates()
   };
 
   console.log("Candidate-data", data, "editMode", editMode);

@@ -24,17 +24,13 @@ export default function Candidates() {
     setFormVisible(false);
   };
 
-  const getCandidates = async () => {
-    await axios.get("/getCandidates").then((res) => {
+  const getCandidates =  () => {
+   axios.get("/getCandidates").then((res) => {
       console.log("getResponse", res.data);
       setCandidateList(res.data);
     });
     console.log("candidateList-getCandidates", candidateList);
   };
-
-
-
-
 
   useEffect(() => {
     console.log("useEffect", candidateList);
@@ -57,6 +53,7 @@ export default function Candidates() {
               k={el.key}
               candidateList={candidateList}
               setCandidateList={setCandidateList}
+              getCandidates={getCandidates}
             />
           );
         })}
