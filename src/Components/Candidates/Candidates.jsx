@@ -9,7 +9,6 @@ import dataFields from "./dataFields";
 export default function Candidates() {
   const [candidateList, setCandidateList] = useState(false);
   const [formVisible, setFormVisible] = useState(false);
-  const [editMode, setEditMode] = useState(false);
 
   const addCandidate = async (e) => {
     e.preventDefault();
@@ -33,32 +32,14 @@ export default function Candidates() {
     console.log("candidateList-getCandidates", candidateList);
   };
 
-  const updateCandidate = async (k, e) => {
-    e.preventDefault();
 
-    console.log("update event target", e.target);
-    const data = { key: k };
-    for (const el of e.target.elements) {
-      if (el.tagName === "INPUT") data[el.name] = el.value;
-      // data[el.name] = el.name === "members" || el.name === "deed" ? JSON.parse(el.value) : el.value;
-    }
 
-    console.log("update event", data);
-    candidateList[k] = data;
-    setCandidateList(candidateList);
-    await axios.put(`/editCandidate/${k}`, data);
-    setEditMode(false);
-  };
 
-  const deleteCandidate = async (k) => {
-    await axios.delete(`/delCandidate/${k}`);
-    setEditMode(false);
-  };
 
   useEffect(() => {
     console.log("useEffect", candidateList);
     getCandidates();
-  }, [formVisible, editMode]); //save, add, del, edit
+  }, [formVisible]); //save, add, del, edit
 
   return (
     <div className="candidates">
@@ -73,11 +54,9 @@ export default function Candidates() {
             <Candidate
               key={el.key}
               data={el}
-              editMode={editMode}
-              setEditMode={setEditMode}
-              updateCandidate={updateCandidate}
-              deleteCandidate={deleteCandidate}
               k={el.key}
+              candidateList={candidateList}
+              setCandidateList={setCandidateList}
             />
           );
         })}

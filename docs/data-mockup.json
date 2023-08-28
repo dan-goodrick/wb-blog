@@ -4,36 +4,8 @@
     "lastName": "De La Cruz",
     "familyPhoto": "../src/Components/Candidates/images/DeLaCruz.jpg",
     "gps": "1.725634, -116.552132",
-    "members": [
-      {
-        "name": "Salvador",
-        "role": "father"
-      },
-      {
-        "name": "Reynalda",
-        "role": "mother"
-      },
-      {
-        "name": "Miranda",
-        "role": "daughter",
-        "DOB": 2015
-      },
-      {
-        "name": "Celia",
-        "role": "daughter",
-        "DOB": 2017
-      },
-      {
-        "name": "Ivan",
-        "role": "son",
-        "DOB": 2023
-      }
-    ],
-    "deed": [
-      "../src/Components/Candidates/images/DeLaCruzDeed1.jpg",
-      "../src/Components/Candidates/images/DeLaCruzDeed2.jpg",
-      "../src/Components/Candidates/images/DeLaCruzDeed3.jpg"
-    ],
+    "members": 6,
+    "deed": "../src/Components/Candidates/images/DeLaCruzDeed1.jpg",
     "video": "",
     "currentOnPayments": true,
     "ownsLand": false,
@@ -46,30 +18,8 @@
     "lastName": "Olade",
     "familyPhoto": "../src/Components/Candidates/images/Olalde.jpg",
     "gps": "31.685768, -116.607750",
-    "members": [
-      {
-        "name": "Benjamin",
-        "role": "father"
-      },
-      {
-        "name": "Lizet",
-        "role": "mother"
-      },
-      {
-        "name": "Mosiah",
-        "role": "son",
-        "DOB": 2013
-      },
-      {
-        "name": "Yeihzuan",
-        "role": "son",
-        "DOB": 2015
-      }
-    ],
-    "deed": [
-      "../src/Components/Candidates/images/OladeReciept.jpeg",
-      "../src/Components/Candidates/images/OladeReciept2.jpeg"
-    ],
+    "members": 4,
+    "deed": "../src/Components/Candidates/images/OladeReciept.jpeg",
     "currentOnPayments": true,
     "ownsLand": false,
     "video": "https://drive.google.com/file/d/1EwWpngEVEVYy7ukGeqwLhUBdT4jqkDSi/view?usp=sharing",
@@ -82,18 +32,8 @@
     "lastName": "",
     "familyPhoto": "../src/Components/Candidates/images/Onorinda.jpg",
     "gps": "",
-    "members": [
-      {
-        "name": "Onorinda",
-        "role": "widow"
-      },
-      {
-        "name": "",
-        "role": "son",
-        "DOB": 2004
-      }
-    ],
-    "deed": [],
+    "members": 2,
+    "deed": "",
     "currentOnPayments": true,
     "ownsLand": true,
     "video": "",

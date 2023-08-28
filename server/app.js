@@ -16,7 +16,7 @@ app.use(express.json())
 app.get("/getCandidates", ctrl.show)
 app.post("/addCandidate", ctrl.add)
 app.put("/editCandidate/:key", ctrl.edit)
-app.delete("/delCandidate/:key", ctrl.delete)
+app.delete("/delCandidate/:key", ctrl.del)
 
 ViteExpress.config({ printViteDevServerHost: true });
 ViteExpress.listen(app, PORT, ()=>console.log(`Hosting Backend on http://localhost:${PORT}`))
